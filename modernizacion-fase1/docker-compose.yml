@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  auth-service:
+    build: ./services/auth-service
+    container_name: auth-service
+    environment:
+      SECURITY_JWT_SECRET: ${SECURITY_JWT_SECRET:-change-me-please-change-me-please-change-me-2026}
+    ports:
+      - "8081:8081"
+
+  product-service:
+    build: ./services/product-service
+    container_name: product-service
+    environment:
+      SECURITY_JWT_SECRET: ${SECURITY_JWT_SECRET:-change-me-please-change-me-please-change-me-2026}
+    ports:
+      - "8082:8082"
+

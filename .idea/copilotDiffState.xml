@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/modernizacion-fase1/services/auth-service/src/test/java/com/uade/modernizacion/auth/AuthHealthTest.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/modernizacion-fase1/services/auth-service/src/test/java/com/uade/modernizacion/auth/AuthHealthTest.java" />
+              <option name="updatedContent" value="package com.uade.modernizacion.auth;&#10;&#10;import org.junit.jupiter.api.Test;&#10;import org.springframework.beans.factory.annotation.Autowired;&#10;import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;&#10;import org.springframework.boot.test.context.SpringBootTest;&#10;import org.springframework.test.web.servlet.MockMvc;&#10;&#10;import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;&#10;import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;&#10;import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;&#10;&#10;@SpringBootTest&#10;@AutoConfigureMockMvc&#10;class AuthHealthTest {&#10;&#10;    @Autowired&#10;    private MockMvc mockMvc;&#10;&#10;    @Test&#10;    void healthDebeResponderUp() throws Exception {&#10;        mockMvc.perform(get(&quot;/actuator/health&quot;))&#10;                .andExpect(status().isOk())&#10;                .andExpect(jsonPath(&quot;$.status&quot;).value(&quot;UP&quot;));&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
