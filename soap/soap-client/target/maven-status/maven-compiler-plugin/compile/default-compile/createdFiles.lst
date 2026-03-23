@@ -1,0 +1,10 @@
+com\uade\soap\countries\Currency.class
+com\uade\soap\countries\ObjectFactory.class
+com\uade\soapclient\controller\CountryController.class
+com\uade\soap\countries\GetCountryResponse.class
+com\uade\soapclient\client\CountryClient.class
+com\uade\soap\countries\Country.class
+com\uade\soapclient\SoapClientApplication.class
+com\uade\soap\countries\GetCountryRequest.class
+com\uade\soap\countries\package-info.class
+com\uade\soapclient\config\SoapClientConfig.class

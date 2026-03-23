@@ -1,0 +1,9 @@
+com\uade\legacy\dao\UsuarioDAO.class
+com\uade\legacy\servlet\LogoutServlet.class
+com\uade\legacy\filter\AuthFilter.class
+com\uade\legacy\dao\ProductoDAO.class
+com\uade\legacy\util\DBConnection.class
+com\uade\legacy\servlet\ProductoServlet.class
+com\uade\legacy\model\Usuario.class
+com\uade\legacy\model\Producto.class
+com\uade\legacy\servlet\LoginServlet.class

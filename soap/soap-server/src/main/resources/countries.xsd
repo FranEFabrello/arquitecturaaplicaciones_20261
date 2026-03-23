@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    CONTRATO DEL SERVICIO SOAP
+    ==========================
+    Este archivo XSD es el corazón del servicio SOAP. Define:
+      - Los mensajes de entrada (Request) y salida (Response)
+      - Los tipos de datos que se intercambian
+
+    El plugin jaxb2-maven-plugin leerá este archivo y generará automáticamente
+    las clases Java correspondientes durante la compilación con Maven.
+
+    Namespace: http://uade.com/soap/countries
+    Las clases generadas quedarán en el paquete: com.uade.soap.countries
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://uade.com/soap/countries"
+           targetNamespace="http://uade.com/soap/countries"
+           elementFormDefault="qualified">
+
+    <!-- MENSAJE DE ENTRADA: el cliente envía el nombre del país a consultar -->
+    <xs:element name="getCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- MENSAJE DE SALIDA: el servidor responde con los datos del país -->
+    <xs:element name="getCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- TIPO COMPLEJO: estructura de un país -->
+    <xs:complexType name="country">
+        <xs:sequence>
+            <xs:element name="name"       type="xs:string"/>
+            <xs:element name="population" type="xs:int"/>
+            <xs:element name="capital"    type="xs:string"/>
+            <xs:element name="currency"   type="tns:currency"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- TIPO ENUMERADO: monedas disponibles -->
+    <xs:simpleType name="currency">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="PLN"/>
+            <xs:enumeration value="ARS"/>
+            <xs:enumeration value="USD"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

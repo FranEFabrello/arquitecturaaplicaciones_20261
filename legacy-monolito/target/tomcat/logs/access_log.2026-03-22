@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [22/Mar/2026:11:33:47 -0300] "GET /legacy HTTP/1.1" 302 - http-bio-8080-exec-2 0
+0:0:0:0:0:0:0:1 - - [22/Mar/2026:11:33:47 -0300] "GET /legacy/ HTTP/1.1" 302 - http-bio-8080-exec-3 16
+0:0:0:0:0:0:0:1 - - [22/Mar/2026:11:33:47 -0300] "GET /legacy/login HTTP/1.1" 200 1525 http-bio-8080-exec-4 168
+0:0:0:0:0:0:0:1 - - [22/Mar/2026:11:33:47 -0300] "GET /legacy/css/style.css HTTP/1.1" 200 7596 http-bio-8080-exec-5 8
+0:0:0:0:0:0:0:1 - - [22/Mar/2026:11:33:47 -0300] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-6 0
+0:0:0:0:0:0:0:1 - - [22/Mar/2026:11:36:06 -0300] "POST /legacy/login HTTP/1.1" 302 - http-bio-8080-exec-8 1100
+0:0:0:0:0:0:0:1 - - [22/Mar/2026:11:36:06 -0300] "GET /legacy/productos HTTP/1.1" 200 6776 http-bio-8080-exec-10 135

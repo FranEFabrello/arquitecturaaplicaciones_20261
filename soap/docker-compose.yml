@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+  # ── Servidor SOAP (Productor) ──────────────────────────────────────────────
+  soap-server:
+    build:
+      context: ./soap-server
+      dockerfile: Dockerfile
+    container_name: soap-server
+    ports:
+      - "8080:8080"       # WSDL: http://localhost:8080/ws/countries.wsdl
+    networks:
+      - soap-network
+    # Healthcheck: Docker esperará a que el WSDL sea accesible antes de
+    # marcar el servicio como "healthy" y permitir que el cliente arranque.
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/ws/countries.wsdl || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ── Cliente SOAP (Consumidor) ──────────────────────────────────────────────
+  soap-client:
+    build:
+      context: ./soap-client
+      dockerfile: Dockerfile
+    container_name: soap-client
+    ports:
+      - "8081:8081"       # REST demo: http://localhost:8081/client/country/Spain
+    environment:
+      # Dentro de la red Docker, "soap-server" resuelve al contenedor del servidor.
+      # Esta variable sobreescribe el valor por defecto de application.properties.
+      - SOAP_SERVER_URL=http://soap-server:8080/ws
+    depends_on:
+      soap-server:
+        condition: service_healthy   # El cliente no arranca hasta que el servidor esté listo
+    networks:
+      - soap-network
+
+networks:
+  soap-network:
+    driver: bridge
